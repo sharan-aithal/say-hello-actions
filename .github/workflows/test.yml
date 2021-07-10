@@ -1,0 +1,14 @@
+name: Test action
+
+on:
+  issues:
+    types: [created]
+  pull_request:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
