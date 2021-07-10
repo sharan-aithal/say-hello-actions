@@ -1,6 +1,9 @@
 name: 'Say Hello to contributor'
 description: 'Just say hello to contributers who creates issue or pull request'
 inputs:
+  GITHUB_TOKEN: # github token
+    description: 'GitHub Token'
+    required: true
   message:  # a greeting message
     description: 'Greet contributor'
     required: true
