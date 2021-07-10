@@ -4,7 +4,7 @@ on:
   issues:
     types: [created]
   pull_request:
-    types: [created]
+    types: [opened]
 
 jobs:
   test:
