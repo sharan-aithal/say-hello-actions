@@ -1,0 +1,10 @@
+name: 'Say Hello to contributor'
+description: 'Just say hello to contributers who creates issue or pull request'
+inputs:
+  message:  # a greeting message
+    description: 'Greet contributor'
+    required: true
+    default: 'Hello contributor'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
