@@ -1,3 +1,4 @@
 ### say-hello-actions
 
-just a simple github actions 
+Just a simple github actions 
+
