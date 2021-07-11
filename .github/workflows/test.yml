@@ -2,9 +2,9 @@ name: Test action
 
 on:
   issues:
-    types: [created]
+    types: [created, opened]
   pull_request:
-    types: [created]
+    types: [created, opened]
 
 jobs:
   test:
