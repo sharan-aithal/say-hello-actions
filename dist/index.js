@@ -6289,21 +6289,25 @@ const core = __nccwpck_require__(186);
 const github = __nccwpck_require__(438);
 
 async function run() {
-  const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
-  const message = core.getInput('message');
+  try {
+    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+    const message = core.getInput('message');
 
-  const { context = {} } = github;
-  const { pull_request } = context.payload;
+    const { context = {} } = github;
+    const { pull_request } = context.payload;
 
-  console.log('Pull Request #${pull_request.number}');
+    console.log(`Pull Request : ${pull_request.number}`);
 
-  const octokit = github.getOctokit(GITHUB_TOKEN);
+    const octokit = github.getOctokit(GITHUB_TOKEN);
 
-  await octokit.issues.createComment({
-    ...context.repo,
-    issue_number: pull_request.number,
-    body: `${message}`
-  });
+    await octokit.rest.issues.createComment({
+      ...context.repo,
+      issue_number: pull_request.number,
+      body: `${message}`
+    });
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
 
 run();
